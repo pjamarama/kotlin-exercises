@@ -10,17 +10,19 @@ class GrothOfPopulation {
 }
 
 fun main() {
-    println(groth());
+    println(groth(pp0 = 1000, percent = 2.0, aug = 50, p = 1200));
+    println(groth(pp0 = 1500, percent = 5.0, aug = 100, p = 5000));
+    println(5.0 / 100 + 1)
 }
 
-fun groth(): Int {
+fun groth(pp0: Int, percent: Double, aug: Int, p: Int): Int {
     var numberOfYears = 0
-    var population = 1000.0
+    var count: Double = pp0.toDouble()
 
-    while (population < 1200) {
+    do {
         numberOfYears += 1
-        population = population * 1.02 + 50
-    }
+        count = count * (percent / 100 + 1) + aug
+    } while (count < p)
 
     return numberOfYears
 }
